@@ -1,0 +1,45 @@
+﻿@model FlightManagementSystemMVCProject.Models.Flights
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ChooseLocation</title>
+    <link href="~/css/ChooselocationStyle.css" rel="stylesheet" />
+</head>
+<body>
+
+
+<div class="LoginBox">
+    <h2>Choose From Location and To Location</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="ChooseLocation">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="FromLocation" class="control-label"></label>
+                    <input asp-for="FromLocation" class="form-control" id="input" />
+                    <span asp-validation-for="FromLocation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ToLocation" class="control-label"></label>
+                    <input asp-for="ToLocation" class="form-control" id="input"/>
+                    <span asp-validation-for="ToLocation" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" id="submitButton" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

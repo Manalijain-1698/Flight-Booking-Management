@@ -1,0 +1,97 @@
+﻿@model IEnumerable<FlightManagementSystemMVCProject.Models.Flights>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowFlights</title>
+    <link href="~/css/ShowFlightsStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <h2 style="text-align:center">Flight Details</h2>
+    <br />
+    
+        <table id="tabledata">
+
+            <thead>
+                <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.FromLocation)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ToLocation)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Duration)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ArrivalTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DepartureTime)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FromLocation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ToLocation)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Duration)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ArrivalTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DepartureTime)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Book Ticket", "BookTicket", new { id = item.Flightid })
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        <div style="color:red">
+            @ViewBag.message
+        </div>
+        <br />
+        <div id="navlink">
+            <a asp-action="ChooseLocation">Back to Homepage</a>
+        </div>
+        <br />
+        
+    
+</body>
+
+</html>

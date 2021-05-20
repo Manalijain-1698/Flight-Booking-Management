@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FlightManagementSystemMVCProject.Models.Bookings>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetBookingDetails</title>
+    <link href="~/css/ShowFlightsStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <h2 style="text-align:center">Booked Ticket Details</h2>
+    <table id="tabledata">
+        <thead>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bookingid)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.NoOfSeats)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Totalprice)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bookingid)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NoOfSeats)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Totalprice)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <div >
+        <input type="button" value="Logout" class="btn btn-primary" id="button" onclick="location.href='@Url.Action("Logout","Booking")'" />
+    </div>
+</body>
+</html>
